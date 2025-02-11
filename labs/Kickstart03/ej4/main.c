@@ -9,7 +9,7 @@
 #include <stdlib.h>
 
 /* Then, this project's includes, alphabetically ordered */
-#include "array_helpers.h"
+#include "weather_utils.h"
 
 /**
  * @brief print usage help
@@ -70,8 +70,16 @@ int main(int argc, char *argv[]) {
     /* parse the file to fill the array and obtain the actual length */
     array_from_file(array, filepath);
 
-    /* show the ordered array in the screen */
-    array_dump(array);
+    printf("Min: %d\n",min_temp(array));
+
+    int max_temp[YEARS], months_precp[YEARS];
+    max_temp_per_year(array, max_temp);
+    months_of_max_precps_per_year(array, months_precp);
+
+    for (unsigned int y = 0u; y<YEARS; y++){
+        printf("Agno:%d->(Max temp:%d, Max mes con prec:%u)\n",y+FST_YEAR, max_temp[y], months_precp[y]+1);
+    }    
 
     return (EXIT_SUCCESS);
 }
+

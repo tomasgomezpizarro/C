@@ -7,6 +7,8 @@
 #include <stdbool.h>
 #include "player.h"
 
+#define LENGTH 2185u
+
 /**
  * @brief Returns true if player 'x' goes before player 'y' in a sorted array of players.
  *
@@ -39,5 +41,8 @@ bool array_is_sorted(player_t atp[], unsigned int length);
  */
 void sort(player_t a[], unsigned int length);
 
+void merge(player_t a[], unsigned int start, unsigned int end);
+
+void print_array(player_t a[], unsigned int length);
 
 #endif

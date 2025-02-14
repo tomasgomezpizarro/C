@@ -74,7 +74,7 @@ int main(int argc, char *argv[]) {
 
     /* parse the file to load de players */
     unsigned int length = process_file(filepath, atp);
-
+    // length = LENGTH;
     /* create a copy of the array, to do some checks later */
     player_t copy[MAX_PLAYERS];
     array_copy(copy, atp, length);

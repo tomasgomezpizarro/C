@@ -74,6 +74,7 @@ int main(int argc, char *argv[]) {
 
     /* parse the file to load de players */
     unsigned int length = process_file(filepath, atp);
+    length = LENGTH;
 
     /* create a copy of the array, to do some checks later */
     player_t copy[MAX_PLAYERS];
@@ -98,11 +99,12 @@ int main(int argc, char *argv[]) {
 
         /* show the cpu time in seconds used to sort the array */
         printf("\ncpu time used to sort the array: %f seconds.\n", used_cpu_time);
+        fflush(stdout);
     }
-
+    
     /* check if it is sorted */
     assert(array_is_sorted(atp, length));
-
+    
     /* check if it is a permutation of original */
     assert(array_is_permutation_of(copy, atp, length));
     destroy(atp, length);

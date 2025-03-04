@@ -15,15 +15,7 @@ void array_copy(player_t copy[], player_t array[], unsigned int length) {
     }
 }
 
-/**
- * @brief counts the amaount of players which have the same name as 'value' present in Array 'a'
- *
- * @param[in]  a       Players array
- * @param[in]  length  Players array length
- * @param[in]  value   Player who will be count
- *
- * @return amount of players with name 'value.name' contained in 'a'
- */
+
 static unsigned int array_value_count(player_t a[], unsigned int length, player_t value) {
     unsigned int count = 0u;
     for (unsigned int i = 0u; i < length; ++i) {
@@ -46,16 +38,7 @@ bool array_is_permutation_of(player_t a[], player_t b[], unsigned int length) {
     return (result);
 }
 
-/**
- * @brief reads characters from file until feof or separator is reached. read characters are stored in 'result'
- *
- * @param[in]  file             An opened stream file
- * @param[in]  separator        string separator
- * @param[out] result           the read characters wil be stored here
- * @param[in]  result_max_size  The maximum of characters that result allow.
- *
- * @return Amount of read characters
- */
+
 static unsigned int process_string(FILE *file, char separator, char result[], unsigned int result_max_size)
 {
     unsigned int str_size = 0u;
@@ -78,13 +61,7 @@ static unsigned int process_string(FILE *file, char separator, char result[], un
     return str_size;
 }
 
-/**
- * @brief Reads an unsigned int value from stream file
- *
- * @param[in]      file  The opened file stream
- *
- * @return value read from file
- */
+
 static unsigned int process_unsigned(FILE *file) {
     unsigned int value = 0u;
     int res = fscanf(file, " %u ", &value);
@@ -103,14 +80,7 @@ void atp_dump(player_t atp[], unsigned int length) {
     }
 }
 
-/**
- * @brief process an opened file stream pointer and stores parsed values into atp array
- *
- * @param[in]      file  The opened file
- * @param[out]     atp   Players array
- *
- * @return Amount of read players
- */
+
 static unsigned int process_FILE(FILE *file, player_t atp[]) {
     unsigned int i = 0u;
     while (!feof(file)) {

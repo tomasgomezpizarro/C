@@ -11,11 +11,7 @@ typedef struct _person {
     char name_initial;
 } person_t;
 
-/**
- * @brief Main program function
- *
- * @return EXIT_SUCCESS when programs executes correctly, EXIT_FAILURE otherwise
- */
+
 int main(void) {
 
     int x = 1;

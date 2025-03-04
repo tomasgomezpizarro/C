@@ -11,10 +11,7 @@
 /* Then, this project's includes, alphabetically ordered */
 #include "weather_utils.h"
 
-/**
- * @brief print usage help
- * @param[in] program_name Executable name
- */
+
 void print_help(char *program_name) {
     /* Print the usage help of this program. */
     printf("Usage: %s <input file path>\n\n"
@@ -28,14 +25,7 @@ void print_help(char *program_name) {
            program_name);
 }
 
-/**
- * @brief reads file path from command line
- *
- * @param[in] argc amount of command line arguments
- * @param[in] argv command line arguments
- *
- * @return An string containing read filepath
- */
+
 char *parse_filepath(int argc, char *argv[]) {
     /* Parse the filepath given by command line argument. */
     char *result = NULL;
@@ -50,14 +40,7 @@ char *parse_filepath(int argc, char *argv[]) {
     return (result);
 }
 
-/**
- * @brief Main program function
- *
- * @param[in] argc amount of command line arguments
- * @param[in] argv command line arguments
- *
- * @return EXIT_SUCCESS when programs executes correctly, EXIT_FAILURE otherwise
- */
+
 int main(int argc, char *argv[]) {
     char *filepath = NULL;
 

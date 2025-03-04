@@ -10,13 +10,7 @@
 #include "array_helpers.h"
 
 
-/**
- * @brief returns true when reach last line in weather file
- * @param[in] year Year array position (start in 0 ends with YEARS - 1)
- * @param[in] month Month of the year (december is last month 11u)
- * @param[in] day Day of the month. We assume all month have 28 days.
- * @return True when is the last line of the file, False otherwise
- */
+
 static bool is_last_line(unsigned int year, unsigned int month, unsigned int day)
 {
     return  year == YEARS - 1u && month == december && day == DAYS - 1u;

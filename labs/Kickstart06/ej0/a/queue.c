@@ -6,9 +6,8 @@
 #include "queue.h"
 
 struct s_queue {
-    /*
-     * COMPLETAR
-     */
+    unsigned int len;
+    struct s_node *last;
     struct s_node *first;
 };
 
@@ -42,12 +41,18 @@ invrep(queue q) {
 
 queue queue_empty(void) {
     queue q=NULL;
-    /*
-     * COMPLETAR
-     *
-     */
+    q = malloc(sizeof(struct s_queue));
+    assert(q!=NULL);
+    q->len = 0;
+    q->first = NULL;
+    q->last = NULL;
     assert(invrep(q) && queue_is_empty(q));
     return q;
+}
+
+queue_elem queue_last(queue q) {
+    assert(invrep(q) && !queue_is_empty(q));
+    return q->last->elem;
 }
 
 queue queue_enqueue(queue q, queue_elem e) {
@@ -56,12 +61,11 @@ queue queue_enqueue(queue q, queue_elem e) {
     if (q->first==NULL) {
         q->first = new_node;
     } else {
-        /*
-         * COMPLETAR
-         *
-         */
+        q->last->next = new_node;
     }
-    assert(invrep(q) && !queue_is_empty(q) && queue_first(q) == e);
+    q->last = new_node;
+    q->len ++;
+    assert(invrep(q) && !queue_is_empty(q) && queue_last(q) == e);
     return q;
 }
 
@@ -70,24 +74,19 @@ bool queue_is_empty(queue q) {
     return q->first == NULL;
 }
 
-queue_elem queue_first(queue q) {
-    assert(invrep(q) && !queue_is_empty(q));
-    return q->first->elem;
-}
 unsigned int queue_size(queue q) {
     assert(invrep(q));
-    unsigned int size=0;
-    /*
-     * COMPLETAR
-     *
-     */
-    return size;
+    return q->len;
 }
 
 queue queue_dequeue(queue q) {
     assert(invrep(q) && !queue_is_empty(q));
     struct s_node * killme=q->first;
     q->first = q->first->next;
+    q->len --;
+    if (q->first == NULL){
+        q->last = NULL;
+    }
     killme = destroy_node(killme);
     assert(invrep(q));
     return q;

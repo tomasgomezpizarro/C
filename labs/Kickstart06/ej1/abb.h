@@ -7,6 +7,8 @@ typedef struct _s_abb * abb;
 
 typedef int abb_elem;
 
+// typedef abb stack_elem;
+
 abb abb_empty(void);
 /* DESC: Creates an empty tree
  *
@@ -46,7 +48,7 @@ unsigned int abb_length(abb tree);
  * POS : {tree --> ABB && (abb_is_empty(tree) || length > 0)}
  */
 
-abb abb_remove(abb tree, abb_elem e);
+bool abb_remove(abb tree, abb_elem e);
 /* DESC: Removes the given element. If `e` is not in the tree, it does nothing
  *       an returns the tree unchanged
  *
